@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Facade;
 
 return [
 
+    'api_latest'  => '1',
+
     /*
     |--------------------------------------------------------------------------
     | Application Name
