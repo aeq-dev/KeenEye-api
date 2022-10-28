@@ -45,12 +45,11 @@ class ProductResource extends Resource
                             ->mask(
                                 fn (TextInput\Mask $mask) => $mask
                                     ->numeric()
-                                    ->decimalPlaces(2) // Set the number of digits after the decimal point.
-                                    ->decimalSeparator(',') // Add a separator for decimal numbers.                                    
-                                    ->mapToDecimalSeparator([',']) // Map additional characters to the decimal separator.
-                                    ->normalizeZeros() // Append or remove zeros at the end of the number.
-                                    ->padFractionalZeros() // Pad zeros at the end of the number to always maintain the maximum number of decimal places.
-                                ,
+                                    ->decimalPlaces(2)
+                                    ->decimalSeparator(',')
+                                    ->mapToDecimalSeparator([','])
+                                    ->normalizeZeros()
+                                    ->padFractionalZeros(),
                             ),
                         TextInput::make('discount_rate')
                             ->label('Discount Rate')
@@ -58,14 +57,11 @@ class ProductResource extends Resource
                             ->mask(
                                 fn (TextInput\Mask $mask) => $mask
                                     ->numeric()
-                                    //->decimalPlaces(2) // Set the number of digits after the decimal point.
-                                    //->decimalSeparator(',') // Add a separator for decimal numbers.                                    
-                                    ->mapToDecimalSeparator([',']) // Map additional characters to the decimal separator.
-                                    ->minValue(0) // Set the minimum value that the number can be.
-                                    ->maxValue(100) // Set the maximum value that the number can be.                                
-                                    ->normalizeZeros() // Append or remove zeros at the end of the number.
-                                    ->padFractionalZeros() // Pad zeros at the end of the number to always maintain the maximum number of decimal places.
-                                ,
+                                    ->mapToDecimalSeparator([','])
+                                    ->minValue(0)
+                                    ->maxValue(100)
+                                    ->normalizeZeros()
+                                    ->padFractionalZeros(),
                             ),
                         Select::make('category_id')
                             ->label('Category')

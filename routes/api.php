@@ -1,8 +1,9 @@
 <?php
 
-use App\Http\Controllers\Api\ProductCategoryController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\ProductController;
+use App\Http\Controllers\Api\ProductCategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,5 +23,6 @@ Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
 
 Route::middleware(['middleware' => 'auth:sanctum'])->group(function () {
 
-    Route::apiResource('categories', ProductCategoryController::class);
+    Route::apiResource('categories', ProductCategoryController::class)->only('index');
+    Route::apiResource('products', ProductController::class)->only('index', 'show');
 });

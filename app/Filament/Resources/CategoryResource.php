@@ -33,6 +33,7 @@ class CategoryResource extends Resource
                     ->schema([
                         TextInput::make('name')
                             ->label(__('Name'))
+                            ->unique(table: Category::class, ignoreRecord: true)
                             ->required(),
                         Select::make('parent_id')
                             ->label(__('Parent'))
